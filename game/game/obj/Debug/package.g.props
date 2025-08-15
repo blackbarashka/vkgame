@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <PackageJsonName Condition="$(PackageJsonName) == ''">vk-2048-js</PackageJsonName>
+    <PackageJsonVersion Condition="$(PackageJsonVersion) == ''">1.0.0</PackageJsonVersion>
+    <PackageJsonPrivate Condition="$(PackageJsonPrivate) == ''">true</PackageJsonPrivate>
+    <PackageJsonType Condition="$(PackageJsonType) == ''">module</PackageJsonType>
+    <PackageJsonScriptsDev Condition="$(PackageJsonScriptsDev) == ''">vite</PackageJsonScriptsDev>
+    <PackageJsonScriptsBuild Condition="$(PackageJsonScriptsBuild) == ''">vite build</PackageJsonScriptsBuild>
+    <PackageJsonScriptsPreview Condition="$(PackageJsonScriptsPreview) == ''">vite preview --port 5173</PackageJsonScriptsPreview>
+    <PackageJsonDependenciesVkontakteIcons Condition="$(PackageJsonDependenciesVkontakteIcons) == ''">^2.112.0</PackageJsonDependenciesVkontakteIcons>
+    <PackageJsonDependenciesVkontakteVkBridge Condition="$(PackageJsonDependenciesVkontakteVkBridge) == ''">^2.12.1</PackageJsonDependenciesVkontakteVkBridge>
+    <PackageJsonDependenciesVkontakteVkui Condition="$(PackageJsonDependenciesVkontakteVkui) == ''">^6.5.0</PackageJsonDependenciesVkontakteVkui>
+    <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
+    <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
+    <PackageJsonDevdependenciesVitejsPluginReact Condition="$(PackageJsonDevdependenciesVitejsPluginReact) == ''">^4.3.1</PackageJsonDevdependenciesVitejsPluginReact>
+    <PackageJsonDevdependenciesVite Condition="$(PackageJsonDevdependenciesVite) == ''">^5.4.2</PackageJsonDevdependenciesVite>
+  </PropertyGroup>
+</Project>

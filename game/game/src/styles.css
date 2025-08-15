@@ -1,0 +1,157 @@
+:root {
+  --board-size: 4;
+  --gap: 10px;
+  --cell-size: 72px;
+  --radius: 10px;
+  --grid-bg: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.06));
+  --tile-shadow: 0 6px 16px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+  --board-size: 4;
+  --gap: 10px;
+  --cell-size: 72px;
+  --radius: 10px;
+  --grid-bg: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.06));
+  --tile-shadow: 0 6px 16px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+}
+
+@media (min-width: 420px) {
+    :root { --cell-size: 88px; }
+}
+
+.score-bar {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.score-card {
+    background: var(--vkui--color_background_secondary);
+    border-radius: 12px;
+    padding: 8px 12px;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06) inset;
+}
+.score-card .label { font-size: 12px; opacity: 0.65; }
+.score-card .value { font-weight: 800; font-size: 18px; }
+
+.actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+/* подпись рядом со Switch */
+.switch-with-text { display: inline-flex; align-items: center; gap: 6px; }
+.switch-text { font-size: 14px; opacity: 0.8; }
+
+.grid {
+    position: relative;
+    margin: 0 auto;
+    width: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+    height: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+    display: grid;
+    grid-template-columns: repeat(var(--board-size), var(--cell-size));
+    grid-template-rows: repeat(var(--board-size), var(--cell-size));
+    gap: var(--gap);
+    background: var(--grid-bg);
+    border-radius: var(--radius);
+    padding: var(--gap);
+    box-sizing: content-box;
+    backdrop-filter: saturate(1.15);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius);
+}
+
+/* слой с плитками поверх grid */
+.tiles {
+  position: absolute;
+  top: var(--gap);
+  left: var(--gap);
+  width: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+  height: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+  pointer-events: none; /* клики проходят сквозь слой */
+}
+
+/* Плитки теперь абсолютные и анимируют transform */
+/* слой с плитками поверх grid */
+.tiles {
+  position: absolute;
+  top: var(--gap);
+  left: var(--gap);
+  width: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+  height: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+  pointer-events: none; /* клики проходят сквозь слой */
+}
+
+/* Плитки теперь абсолютные и анимируют transform */
+/* слой с плитками поверх grid */
+.tiles {
+  position: absolute;
+  top: var(--gap);
+  left: var(--gap);
+  width: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+  height: calc(var(--cell-size) * var(--board-size) + var(--gap) * (var(--board-size) - 1));
+  pointer-events: none; /* клики проходят сквозь слой */
+}
+
+/* Плитки теперь абсолютные и анимируют transform */
+.tile {
+    display: grid;
+    place-items: center;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-radius: var(--radius);
+    color: #fff;
+    user-select: none;
+    box-shadow: var(--tile-shadow);
+    animation: tile-pop 120ms ease-out;
+    position: relative;
+    overflow: hidden;
+}
+.tile .num { font-weight: 900; font-size: 22px; letter-spacing: 0.3px; text-shadow: 0 1px 0 rgba(0,0,0,0.15); }
+.tile .emoji { position: absolute; top: 4px; left: 6px; font-size: 18px; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2)); }
+
+/* Цвета плиток */
+.tile-2 { background: #eee4da; color: #776e65; }
+.tile-4 { background: #ede0c8; color: #776e65; }
+.tile-8 { background: #f2b179; }
+.tile-16 { background: #f59563; }
+.tile-32 { background: #f67c5f; }
+.tile-64 { background: #f65e3b; }
+.tile-128 { background: #edcf72; color: #f9f6f2; }
+.tile-256 { background: #edcc61; color: #f9f6f2; }
+.tile-512 { background: #edc850; color: #f9f6f2; }
+.tile-1024 { background: #edc53f; color: #f9f6f2; }
+.tile-2048 { background: #edc22e; color: #f9f6f2; }
+.tile-super { background: #3c3a32; color: #f9f6f2; box-shadow: var(--tile-shadow), 0 0 18px rgba(255, 215, 0, 0.4) inset; }
+
+/* Кнопки управления */
+.controls { display: grid; grid-template-rows: auto auto auto; grid-template-columns: 1fr; gap: 8px; justify-items: center; }
+.h-controls { display: flex; gap: 8px; }
+.tools { display: flex; justify-content: center; }
+
+/* Оверлей */
+.overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: grid; place-items: center; border-radius: var(--radius); animation: fade-in 150ms ease-out; }
+.overlay .overlay-card { background: var(--vkui--color_background_content); border-radius: 14px; padding: 16px 18px; width: 80%; max-width: 300px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+.overlay .title { font-weight: 900; font-size: 20px; margin-bottom: 4px; }
+.overlay .subtitle { opacity: 0.75; margin-bottom: 12px; }
+.overlay.won .overlay-card { box-shadow: 0 10px 30px rgba(255,215,0,0.35); }
+.overlay.over .overlay-card { box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+
+/* Темная тема */
+body[scheme*="dark"] .cell { background: rgba(255, 255, 255, 0.06); }
+body[scheme*="dark"] .tile .num { text-shadow: 0 1px 0 rgba(0,0,0,0.35); }
+
+/* Анимации */
+@keyframes tile-pop {
+  0% { transform: scale(0.9); filter: brightness(0.95); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
